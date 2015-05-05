@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<html>
+<head>
+	<title>jQuery plugin Camembert demo : exemple 1</title>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+
+<h1> Camemberts  ! </h1>
+
+<p>
+In this demo we use custom colors and a predefined radius, please see the code.
+</p>
+
+<div id="camembert"> </div>
+
+
+<script>
+(function($){
+        $(document).ready(function(){
+
+                // Some delicious french cheese ...mmm yummi ! :
+                var labels = ["Brie", "Camembert", "Pont-Lévêque", "Munster", "Vacherin"] ;
+
+                // Some values:
+                var values = [ 20.10 , 42.30 , 19.60 , 14.70 , 3.30 ] ;
+
+		// Some colors: 
+		var colors = ["#337461", "brown" ,"#57145c" , "#17e44f","#d1acf4" ] ;
+
+		$("#camembert").camembert({ 
+				  "labels": labels 
+				, "values": values
+				, "colors": colors 
+				, "radius": 60 
+		}) ;
+
+        });
+})(jQuery) ;
+</script>
+<script src="plugin/jquery.camembert.js" ></script>
+</body>
+</html>
