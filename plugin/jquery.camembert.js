@@ -30,13 +30,12 @@
 		function drawGraphCam(obj, div){
 
 			init(obj) ; 
-
-			div.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width=500 height=600></svg>';
+			var divId = $(div).attr("id");
+			div.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width=500 height=600 id='+divId+'></svg>';
 
 			for (i=0; i<obj['values'].length;i++){
-				addElements(i);
+				addElements(i, divId);
 				startAngle=endAngle;
-
 			}
 		} 
 
@@ -71,16 +70,17 @@
 			return d;
 		}
 				
-		function addElements(i){
-			var svg =  $('svg')[0]; //Get le svg
+		function addElements(i, divId){
+			var svg =  $('svg[id='+divId+']')[0]; //Get le svg
 			startAngle=startAngle;
 			endAngle=(startAngle+obj['values'][i]);
+
 
 			// Draw circle bow:
 			var path = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
 			path.setAttribute('fill', obj['colors'][i]);
 			path.setAttribute('d', arcPath(120 , 120, obj['radius'], startAngle*3.6, endAngle*3.6));
-			path.setAttribute('id', 'arc'+i);
+			path.setAttribute('id', 'arc'+i+''+divId);
 			path.setAttribute('p', i);
 			path.setAttribute('class', "arc");
 			
@@ -91,7 +91,7 @@
 			rect.setAttribute('x',260);
 			rect.setAttribute('y',30*i+10);
 			rect.setAttribute('fill',obj['colors'][i]);
-			rect.setAttribute('id','rect'+i);
+			rect.setAttribute('id','rect'+i+''+divId);
 			
 			// Draws the text labels:
 			var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -101,7 +101,7 @@
 			text.setAttribute('font-size','12');
 			text.setAttribute('font-family','sans-serif');
 			text.setAttribute('font-weight','normal');
-			text.setAttribute('id','text'+i);
+			text.setAttribute('id','text'+i+''+divId);
 			text.textContent = obj['labels'][i]+' ('+obj['values'][i]+'%)';
 			
 			// Append to svg 
