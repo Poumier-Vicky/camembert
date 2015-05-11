@@ -31,7 +31,7 @@
 
 			init(obj) ; 
 			var divId = $(div).attr("id");
-			div.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width=500 height=600 id='+divId+'></svg>';
+			div.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width=500 height=600 id=svg_'+divId+'></svg>';
 
 			for (i=0; i<obj['values'].length;i++){
 				addElements(i, divId);
@@ -71,7 +71,7 @@
 		}
 				
 		function addElements(i, divId){
-			var svg =  $('svg[id='+divId+']')[0]; //Get le svg
+			var svg =  $('svg[id=svg_'+divId+']')[0]; //Get le svg
 			startAngle=startAngle;
 			endAngle=(startAngle+obj['values'][i]);
 

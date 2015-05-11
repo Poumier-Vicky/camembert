@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<html>
+<head>
+	<title>jQuery plugin Camembert demo : exemple 2</title>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+
+<h1> Camemberts  ! </h1>
+
+<p>
+In this demo we create at least two camemberts with differents id and the same class, please see the code.
+</p>
+
+<div class="camembert" id="clacos1"></div>
+<div class="camembert" id="clacos2"></div>
+
+<script>
+(function($){
+        $(document).ready(function(){
+
+            // Some delicious french cheese ...mmm yummi ! :
+            var labels = ["Brie", "Camembert", "Pont-Lévêque", "Munster", "Vacherin"] ;
+
+            // Some values:
+            var values = [ 20.10 , 42.30 , 19.60 , 14.70 , 3.30 ] ;
+
+
+			$(".camembert").camembert({ 
+					  "labels": labels 
+					, "values": values
+			}) ;
+
+        });
+})(jQuery) ;
+</script>
+<script src="plugin/jquery.camembert.js" ></script>
+</body>
+</html>
